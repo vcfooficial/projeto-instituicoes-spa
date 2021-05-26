@@ -1,61 +1,59 @@
-<app-navbar></app-navbar> <!--Linkando o componente Menu Navbar-->
-<div class="container2"> 
-  <h2  style=" text-align: center; color: #24252A; padding: 20px;" >Lista de instituições</h2>
+<app-navbar></app-navbar>
+<!--Linkando o componente Menu Navbar-->
+<div class="container2">
+    <h2 style=" text-align: center; color: #24252A; padding: 20px;">Lista de instituições</h2>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
 
-<!------ Conteúdo da lista de instituições ---------->
-<div class="container search-table">
-            <div class="search-box">
-                <div class="row" style="margin: 15px;">
-                    <div class="col-md-9" >
-                        <input 
-                        type="text" 
-                        id="myInput"  
-                        class="form-control" 
-                        [formControl]="queryField"
+    <!------ Conteúdo da lista de instituições ---------->
+    <div class="container search-table">
+        <div class="search-box">
+            <div class="row" style="margin: 15px;">
+                <div class="col-md-9">
+                    <input type="text" id="myInput" class="form-control" [formControl]="queryField"
                         placeholder="Pesquisar uma instituição">
-                    </div> 
+                </div>
 
-                    <div class="col-auto">
-                    <button class="but btn btn-primary"  (click)="onSearch()">Pesquisar</button>
+                <div class="col-auto">
+                    <button class="but btn btn-primary" (click)="onSearch()">Pesquisar</button>
 
-                    <button class="btn btn-primary" style="margin-left: 5px;" (click)="onRefresh()">Restaurar</button> 
+                    <button class="btn btn-primary" style="margin-left: 5px;" (click)="onRefresh()">Restaurar</button>
                 </div>
 
             </div>
-            <div class="search-list" style="overflow-y: scroll; height: 250px;"> 
-            <!--    <h3>Lista de instituições</h3>  -->
-                <table class="table" id="myTable" >
+            <div class="search-list" style="overflow-y: scroll; height: 250px;">
+                <!--    <h3>Lista de instituições</h3>  -->
+                <table class="table" id="myTable">
                     <thead>
                         <tr>
-                            <th>Ordem <i class="fa fa-sort" style="cursor: pointer;" (click)="sort('nomeinst')"></i></th>
+                            <th>Ordem <i class="fa fa-sort" style="cursor: pointer;" (click)="sort('nomeinst')"></i>
+                            </th>
                             <th>Nome da instituição </th>
                             <th>Data de criação</th>
                         </tr>
                     </thead>
                     <tbody *ngIf="instituicao$ | async as instituicoes">
-                    <tr  *ngFor="let item of instituicoes | orderBy: key: reverse">
-                      <td>
-                            {{ item.id }}
-                    </td> 
-                      <td>
-                            {{ item.razaoSocial }}
-                        </td>
-                        <td>
-                            {{ item.createdAt |date: 'dd/MM/YYYY - hh:mm' }}
-                        </td>
-                    </tr>
+                        <tr *ngFor="let item of instituicoes | orderBy: key: reverse">
+                            <td>
+                                {{ item.id }}
+                            </td>
+                            <td>
+                                {{ item.razaoSocial }}
+                            </td>
+                            <td>
+                                {{ item.createdAt |date: 'dd/MM/YYYY - hh:mm' }}
+                            </td>
+                        </tr>
                     </tbody>
-                  </table>
+                </table>
             </div>
         </div>
-  </div>
-  <div class="footer2">
-      <div class="footer">
-      <h6>Desenvolvido por <a href="http://www.linkedin.com/in/vcfo">Victor Figueiredo</a></h6>
-  </div>
-</div>
+    </div>
+    <div class="footer2">
+        <div class="footer">
+            <h6>Desenvolvido por <a href="http://www.linkedin.com/in/vcfo">Victor Figueiredo</a></h6>
+        </div>
+    </div>
